@@ -52,9 +52,8 @@ node(POD_LABEL) {
         stage('Build a Go project') {
           sh '/kaniko/executor --context `pwd` --destination bibinwilson/hello-kaniko:1.0'
             
-          '''
+          
         }
       }
     }
-
   }
