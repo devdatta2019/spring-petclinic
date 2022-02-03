@@ -31,9 +31,9 @@ podTemplate(yaml: '''
     stage('Build Petclinic Java App') {
       git url: 'https://github.com/devdatta2019/spring-petclinic.git', branch: 'main'
         container('maven') {
-          sh 'mvn -B -ntp clean package'
-          echo "maven build"
-          '''
+          sh 'mvn -B -ntp clean package -DskipTests'
+          
+          
         }
       }
     }
