@@ -9,6 +9,12 @@ podTemplate(yaml: '''
         - sleep
         args:
         - 99d
+      - name: ubuntu
+        image: ubuntu:latest
+        command:
+        - sleep
+        args:
+        - 99d
       - name: kaniko
         image: gcr.io/kaniko-project/executor:debug
         command:
@@ -28,32 +34,25 @@ podTemplate(yaml: '''
               path: config.json
 ''') {
   node(POD_LABEL) {
-    stage('Build Petclinic Java App') {
+    stage('Get a Maven project') {
       git url: 'https://github.com/devdatta2019/spring-petclinic.git', branch: 'main'
-        container('maven') {
-          sh 'mvn -B -ntp clean package -DskipTests'
+      container('maven') {
+        stage('Build a Maven project') {
+          sh 'mvn package'
           
           
         }
       }
     }
-node(POD_LABEL) {
-    stage('Test Petclinic Java App') {
-      git url: 'https://github.com/devdatta2019/spring-petclinic.git', branch: 'main'
-        container('maven') {
-          sh 'mvn test'
-          
-          
-        }
-      }
-    }
+
     stage('Build Java Image') {
       container('kaniko') {
         stage('Build a Go project') {
-          sh '/kaniko/executor --context `pwd` --destination bibinwilson/hello-kaniko:1.0'
-            
-          
+          sh '''
+            /kaniko/executor --context `pwd` --destination devdatta1987/hello-kaniko:1.5
+          '''
+          }
         }
       }
-    }
-  }
+   }
+}
