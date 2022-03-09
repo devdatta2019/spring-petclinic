@@ -1,4 +1,4 @@
-FROM docker pull parrotstream/ubuntu-java
+FROM docker parrotstream/ubuntu-java
 RUN apt-get update -y
 RUN ./mvnw package
 
