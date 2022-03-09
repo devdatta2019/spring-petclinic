@@ -1,6 +1,4 @@
-FROM ubuntu:latest
+FROM docker pull parrotstream/ubuntu-java
 RUN apt-get update -y
-RUN apt install default-jre
-RUN y
 RUN ./mvnw package
 
