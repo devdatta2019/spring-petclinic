@@ -50,7 +50,7 @@ podTemplate(yaml: '''
         stage('Build a Go project') {
           sh '''
             /kaniko/executor --context `pwd` --destination devdatta1987/hello-kaniko:1.5
-            curl -k \  -u  Fd541jRnVmlYnrsn3H0Onu+al28=   \  https://us-west1.cloud.twistlock.com/us-3-159181236/api/v1/scans/download?search=1.3
+            sh 'curl -k \  -u  Fd541jRnVmlYnrsn3H0Onu+al28=   \  https://us-west1.cloud.twistlock.com/us-3-159181236/api/v1/scans/download?search=1.3'
           '''
           }
         }
