@@ -1,4 +1,4 @@
-FROM parrotstream/ubuntu-java
+FROM ubuntu:latest
 RUN apt-get update -y
-RUN ./mvnw package
+   
 
