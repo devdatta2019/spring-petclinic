@@ -10,8 +10,8 @@ podTemplate(yaml: '''
         - sleep
         args:
         - 99d
-      - name: ubuntu
-        image: ubuntu:latest
+      - name: centos
+        image: centos:latest
         command:
         - sleep
         args:
@@ -58,7 +58,7 @@ podTemplate(yaml: '''
       }
   
       stage('Scan report') {
-          container('ubuntu') {
+          container('centos') {
               stage ('Prisma scan') {    
               script {
                   
