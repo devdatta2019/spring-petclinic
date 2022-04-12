@@ -62,7 +62,7 @@ podTemplate(yaml: '''
               script {
                   
                   final String url="https://us-west1.cloud.twistlock.com/us-3-159181236/api/v1/scans/download?search=devdatta1987/hello-kaniko:1.5"
-                  final String response = sh(script: "curl -k -s $url", returnStdout: true).trim()
+                  final String response = sh(script: "curl -s $url", returnStdout: true).trim()
               
                   echo result | jq  -r '.[].vulnerabilityDistribution'
               }
