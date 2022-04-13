@@ -65,7 +65,7 @@ podTemplate(yaml: '''
  
                   final String response = sh(script: "curl -k -u f04d752e-26fd-4c43-b4ec-0b1a96d60ad7:Fd541jRnVmlYnrsn3H0Onu+al28= $url", returnStdout: true).trim()
               
-                  echo resposne 
+                  echo response
               }
           
       }         
