@@ -61,7 +61,8 @@ podTemplate(yaml: '''
               stage ('Prisma scan') {    
               script {
                   
-                  final String url="https://us-west1.cloud.twistlock.com/us-3-159181236/api/v1/scans/download?search=devdatta1987/hello-kaniko:1.5"
+                  final String url="https://us-west1.cloud.twistlock.com/us-3-159181236//api/v1/scans/download?search=hello-kaniko:1.3"
+ 
                   final String response = sh(script: "curl -s -u f04d752e-26fd-4c43-b4ec-0b1a96d60ad7:Fd541jRnVmlYnrsn3H0Onu+al28= $url", returnStdout: true).trim()
               
                   echo result | jq  -r '.[].vulnerabilityDistribution'
