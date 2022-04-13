@@ -65,7 +65,7 @@ podTemplate(yaml: '''
  
                   final String response = sh(script: "curl -s -u f04d752e-26fd-4c43-b4ec-0b1a96d60ad7:Fd541jRnVmlYnrsn3H0Onu+al28= $url", returnStdout: true).trim()
               
-                  echo result | jq  -r '.[].vulnerabilityDistribution'
+                  echo resposne | jq  -r '.[].vulnerabilityDistribution'
               }
           
       }         
