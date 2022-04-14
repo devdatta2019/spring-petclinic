@@ -15,13 +15,13 @@ template:
   spec:
     containers:
     - name: hello
-      image: devdatta1987/hello-kaniko
+      image: DOCKER-HUB-USERNAME/hello:latest
       imagePullPolicy: Always
       ports:
       - containerPort: 5000
         name: hello
 
-
+---
 apiVersion: v1
 kind: Service
 metadata:
