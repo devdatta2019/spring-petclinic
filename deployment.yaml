@@ -1,38 +1,43 @@
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-name: hello
-labels:
-  app: hello
+  name: hello
 spec:
-strategy:
-  type: Recreate
-template:
-  metadata:
-    labels:
-      app: hello
-      tier: hello
-  spec:
-    containers:
-    - name: hello
-      image: DOCKER-HUB-USERNAME/hello:latest
-      imagePullPolicy: Always
-      ports:
-      - containerPort: 5000
-        name: hello
-
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: hello
+        image: devdatta1987/hello-kaniko:1.5
+        ports:
+        - containerPort: 5000
 ---
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-name: hello
-labels:
-  app: hello
+  name: hello
 spec:
-ports:
-  - port: 5000
-    targetPort: 5000
-selector:
-  app: hello
-  tier: hello
-type: LoadBalancer
+  selector:
+    app: hello
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /hello
+        backend:
+          serviceName: hello
+          servicePort: 5000
