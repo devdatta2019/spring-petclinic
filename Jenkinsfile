@@ -74,7 +74,8 @@ podTemplate(yaml: '''
        stage('Deploy App') {
       
         script {
-          kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "8037c112-c25b-4022-bb5d-6735abb45a31")
+          withKubeConfig([credentialsId: 'kubeconfig']) 
+          sh 'kubectl apply -f deployment.yaml'
         }
       }
     }    
