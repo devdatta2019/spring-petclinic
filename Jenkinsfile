@@ -72,8 +72,7 @@ podTemplate(yaml: '''
   }
    
        stage('Deploy App') {
-      
-        script {
+        steps {
           withKubeConfig([credentialsId: 'kubeconfig']) 
           sh 'kubectl apply -f deployment.yaml'
         }
