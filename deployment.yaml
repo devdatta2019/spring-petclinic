@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        app: hello
+        app: test
     spec:
       containers:
       - name: hello
@@ -21,7 +21,7 @@ metadata:
   name: hello
 spec:
   selector:
-    app: hello
+    app: test
   ports:
     - protocol: TCP
       port: 5000
