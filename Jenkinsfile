@@ -72,8 +72,7 @@ podTemplate(yaml: '''
   }
    
        stage('Deploy App') {
-      steps {
-        script {
+              script {
           kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "mykubeconfig")
         }
       }
@@ -85,4 +84,4 @@ podTemplate(yaml: '''
 }
 
 
-}
+
