@@ -2,12 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello
+  labels:
+    app: myapp
+  
 spec:
   replicas: 1
+  selector: 
+    matchLabels:
+      app: myapp
   template:
     metadata:
       labels:
-        app: test
+        app: myapp
     spec:
       containers:
       - name: hello
@@ -18,10 +24,10 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: hello
+  name: myservice
 spec:
   selector:
-    app: test
+    app: myapp
   ports:
     - protocol: TCP
       port: 5000
