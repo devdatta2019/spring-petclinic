@@ -51,7 +51,7 @@ podTemplate(yaml: '''
           sh '''
             /kaniko/executor --context `pwd` --destination devdatta1987/hello-kaniko:1.5
             
-          '''
+          
           }
         }
       }
