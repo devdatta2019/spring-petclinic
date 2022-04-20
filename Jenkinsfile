@@ -49,7 +49,7 @@ podTemplate(yaml: '''
       container('kaniko') {
         stage('Build a Go project') {
           sh '''
-            /kaniko/executor --context `pwd` devdatta1987/kaniko-demo-image:1.0
+            /kaniko/executor --context `pwd` --destination devdatta1987/hello-kaniko:1.5
             
           '''
           }
@@ -68,20 +68,25 @@ podTemplate(yaml: '''
                   echo response
               }
           
-        }         
+      }         
   }
+}
+
+}
+}
+
    
        stage('Deploy App') {
               script {
           kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "8037c112-c25b-4022-bb5d-6735abb45a31")
         }
       }
-    }    
+        
       
-      }
+      
       
 
-}
+
 
 
 
