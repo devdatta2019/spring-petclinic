@@ -49,7 +49,7 @@ podTemplate(yaml: '''
       container('kaniko') {
         stage('Build a Go project') {
           sh '''
-            /kaniko/executor --context `pwd` --destination devdatta1987/hello-kaniko:1.5
+            /kaniko/executor --context https://github.com/devdatta2019/spring-petclinic.git --destination devdatta1987/hello-kaniko:1.5
             
           '''
           }
