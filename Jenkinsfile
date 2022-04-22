@@ -47,7 +47,7 @@ podTemplate(yaml: '''
 
     stage('Build Java Image') {
       container('kaniko') {
-          stage('Build a Go project') {      
+        stage('Build a Go project') {
           sh '''
             /kaniko/executor --context `pwd` --destination devdatta1987/hello-kaniko:1.5
             
