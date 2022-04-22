@@ -35,7 +35,7 @@ podTemplate(yaml: '''
 ''') {
   node(POD_LABEL) {
     stage('Get a Maven project') {
-      git clone url: 'https://github.com/devdatta2019/spring-petclinic.git', branch: 'main'
+      git url: 'https://github.com/devdatta2019/spring-petclinic.git', branch: 'main'
       container('maven') {
         stage('Build a Maven project') {
           sh 'mvn package'
@@ -47,7 +47,9 @@ podTemplate(yaml: '''
 
     stage('Build Java Image') {
       container('kaniko') {
-        stage('Build a Go project') {
+          stage('Build a Go project') {
+          git url: 'https://github.com/devdatta2019/spring-petclinic.git', branch: 'main'
+          
           sh '''
             /kaniko/executor --context `pwd` --destination devdatta1987/hello-kaniko:1.5
             
