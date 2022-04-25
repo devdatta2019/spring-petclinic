@@ -50,8 +50,7 @@ podTemplate(yaml: '''
         stage('Build a Go project') {
           sh '''
             /kaniko/executor --context `pwd` --destination devdatta1987/hello-kaniko:1.0
-            
-          '''
+            '''
           }
         }
       }
