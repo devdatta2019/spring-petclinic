@@ -46,6 +46,7 @@ podTemplate(yaml: '''
     }
 
     stage('Build Java Image') {
+      git url: 'https://github.com/devdatta2019/spring-petclinic.git', branch: 'main'
       container('kaniko') {
         stage('Build a Go project') {
           sh '''
