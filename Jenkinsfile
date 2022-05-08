@@ -60,13 +60,9 @@ podTemplate(yaml: '''
       stage('Scan report') {
           container('centos') {
               stage ('Prisma scan') {    
-              script {
+              sh './scan.sh'
                   
-                  final String url="https://us-west1.cloud.twistlock.com/us-3-159181236//api/v1/scans/download?search=hello-kaniko:1.3"
- 
-                  final String response = sh(script: "curl -k -u f04d752e-26fd-4c43-b4ec-0b1a96d60ad7:Fd541jRnVmlYnrsn3H0Onu+al28= $url", returnStdout: true).trim()
-              
-                  echo response
+                  
               }
           
       }         
