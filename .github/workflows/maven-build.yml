@@ -44,16 +44,7 @@ jobs:
       - name: Build the image
         run: docker build -t $IMAGE_NAME .
 
-      - name: Prisma Cloud image scan
-        id: scan
-        uses: PaloAltoNetworks/prisma-cloud-scan@v1
-        continue-on-error: false
-        with:
-          pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
-          pcc_user: ${{ secrets.PCC_USER }}
-          pcc_pass: ${{ secrets.PCC_PASS }}
-          IMAGE_NAME: ${{ env.IMAGE_NAME }}
-          
+     
 
   GKE:  
     name: Build and Deploy to GKE
