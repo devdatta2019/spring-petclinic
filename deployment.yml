@@ -45,5 +45,8 @@ spec:
       paths:
       - path: /hello
         backend:
-          serviceName: hello
-          servicePort: 8080
+          service:
+            name: hello
+            port:
+             number: 8080
+        
