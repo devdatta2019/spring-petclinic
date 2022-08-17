@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: gcr.io/apt-reality-357605/test@sha256:d6217f1836f3202d34ef036079e532cf78dfb7f18d662367797535eb7d6136cf
+        image: gcr.io/apt-reality-357605/test@sha256:be319cf0f27a07a03cc8c00b870db54aa2ebfdd5d3789701555a87920bce874e
         ports:
         - containerPort: 5000
 ---
