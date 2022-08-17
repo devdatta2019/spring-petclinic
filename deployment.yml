@@ -33,6 +33,10 @@ spec:
       port: 8080
       targetPort: 8080
 ---
+
+
+
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -43,11 +47,11 @@ spec:
   rules:
   - http:
       paths:
-      - path: /hello
-        pathType: Prefix
+      - path: /
+        pathtype: prefix
         backend:
           service:
             name: hello
             port:
-             number: 8080
+             number: 8088
         
