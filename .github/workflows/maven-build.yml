@@ -90,5 +90,5 @@ jobs:
        - name: Deploy
          run: |-
           ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE_NAME:latest=gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
-          ./kustomize build . | kubectl apply -f deployment.yml
+          ./kustomize build . | kubectl -f -
             kubectl get services -o wide
