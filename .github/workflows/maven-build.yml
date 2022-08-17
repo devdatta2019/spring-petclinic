@@ -89,6 +89,6 @@ jobs:
          
        - name: Deploy
          run: |-
-          ./kustomize edit set image gcr.io/apt-reality-357605/test@sha256:32cdcaa082fcd2319c1c406c7e2dcc97d8692b542871acedef57141cb526fe56
+          ./kustomize edit set image gcr.io/apt-reality-357605/test
           ./kustomize build . | kubectl apply -f deployment.yml
             kubectl get services -o wide
