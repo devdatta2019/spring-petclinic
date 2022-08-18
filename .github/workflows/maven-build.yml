@@ -31,20 +31,9 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
-  build-and-scan:
-    name: Build and scan image
-    runs-on: ubuntu-latest
-    env:   
-            IMAGE_NAME: ${{ github.repository }}:${{ github.sha }} 
-
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v2
-
-      - name: Build the image
-        run: docker build -t $IMAGE_NAME .
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag sysdiglabs/dummy-vuln-app:latest
         
-
     
       - name: Scan image
         id: scan
