@@ -53,9 +53,7 @@ jobs:
           input-type: docker-daemon
           run-as-user: root
 
-          pcc_user: ${{ secrets.PCC_USER }}
-          pcc_pass: ${{ secrets.PCC_PASS }}
-          IMAGE_NAME: ${{ env.IMAGE_NAME }}
+      
         
 
      
