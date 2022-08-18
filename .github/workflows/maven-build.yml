@@ -42,7 +42,21 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build the image
-        run: docker build -t $IMAGE_NAME .
+        run: docker build . --file Dockerfile --tag sysdiglabs/dummy-vuln-app:latest
+        
+      - name: scan image
+        id: scan
+        uses: sysdiglabs/scan-action@v3
+        with:
+          image-tag: "sysdiglabs/dummy-vuln-app:latest"
+          sysdig-secure-token: ${{ secrets.SYSDIG_SECURE_TOKEN }}
+          input-type: docker-daemon
+          run-as-user: root
+
+          pcc_user: ${{ secrets.PCC_USER }}
+          pcc_pass: ${{ secrets.PCC_PASS }}
+          IMAGE_NAME: ${{ env.IMAGE_NAME }}
+        
 
      
 
