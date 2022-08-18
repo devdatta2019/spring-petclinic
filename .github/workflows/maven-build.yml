@@ -43,6 +43,23 @@ jobs:
 
       - name: Build the image
         run: docker build -t $IMAGE_NAME .
+        
+
+    
+      - name: Scan image
+        id: scan
+        uses: sysdiglabs/scan-action@v3
+        with:
+           image-tag: "$IMAGE_NAME"
+           sysdig-secure-token: ${{ secrets.SYSDIG_SECURE_TOKEN }}
+           input-type: docker-daemon
+           run-as-user: root
+
+      - uses: github/codeql-action/upload-sarif@v1
+        if: always()
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarifReport }}
+ 
 
      
 
