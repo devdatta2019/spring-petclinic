@@ -50,6 +50,9 @@ jobs:
         with:
           image-tag: "sysdiglabs/dummy-vuln-app:latest"
           sysdig-secure-token: ${{ secrets.SYSDIG_SECURE_TOKEN }}
+          sysdig-secure-url: ${{ secrets.SYSDIG_SECURE_URL }}
+          
+         
           input-type: docker-daemon
           run-as-user: root
 
