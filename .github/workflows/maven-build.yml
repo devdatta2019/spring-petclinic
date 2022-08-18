@@ -50,7 +50,7 @@ jobs:
         id: scan
         uses: sysdiglabs/scan-action@v3
         with:
-           image-tag: "$IMAGE_NAME"
+           image-tag: "sysdiglabs/dummy-vuln-app:latest"
            sysdig-secure-token: ${{ secrets.MY_SECRET_NAME }}
            sysdig-secure-url:   ${{ secrets.SYSDIG_SECURE_URL }}
            input-type: docker-daemon
