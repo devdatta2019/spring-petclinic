@@ -51,7 +51,7 @@ jobs:
         uses: sysdiglabs/scan-action@v3
         with:
            image-tag: "$IMAGE_NAME"
-           sysdig-secure-token: ${{ secrets.SYSDIG_SECURE_TOKEN }}
+           sysdig-secure-token: ${{ secrets.MY_SECRET_NAME }}
            input-type: docker-daemon
            run-as-user: root
 
