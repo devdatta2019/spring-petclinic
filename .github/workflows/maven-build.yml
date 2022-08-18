@@ -52,6 +52,7 @@ jobs:
         with:
            image-tag: "$IMAGE_NAME"
            sysdig-secure-token: ${{ secrets.MY_SECRET_NAME }}
+           sysdig-secure-url:   ${{ secrets.SYSDIG_SECURE_URL }}
            input-type: docker-daemon
            run-as-user: root
 
