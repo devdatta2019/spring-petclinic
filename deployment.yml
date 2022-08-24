@@ -44,7 +44,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /Petclinic 
+      - path: /myservice
         pathType: Prefix
         backend:
           service:
