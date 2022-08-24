@@ -44,10 +44,10 @@ spec:
   rules:
   - http:
       paths:
-      - path: /hello
+      - path: 
         pathType: Prefix
         backend:
           service:
-            name: hello
+            name: myservice
             port:
              number: 8080
