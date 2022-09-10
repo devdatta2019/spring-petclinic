@@ -20,7 +20,7 @@ spec:
         image: gcr.io/apt-reality-357605/test@sha256:94ba4bc523ec4a73da7d41c072c42a85cfcaaf23426263ee4852939b094dcbdd
         ports:
         - containerPort: 5000
-
+---
 kind: Service
 apiVersion: v1
 metadata:
@@ -32,3 +32,22 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /myservice
+        pathType: Prefix
+        backend:
+          service:
+            name: myservice
+            port:
+             number: 8080
