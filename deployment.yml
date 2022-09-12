@@ -20,21 +20,7 @@ spec:
         image: gcr.io/apt-reality-357605/test@sha256:94ba4bc523ec4a73da7d41c072c42a85cfcaaf23426263ee4852939b094dcbdd
         ports:
         - containerPort: 5000
----
 
-apiVersion: v1
-kind: Service
-metadata:
-  name:  myservice
-spec:
-  type: nodePort
-  selector:
-    app: myapp
-  ports:
-  - protocol: TCP
-    port: 60000
-    targetPort: 8080
-    nodePort: 30035
 
 
 
