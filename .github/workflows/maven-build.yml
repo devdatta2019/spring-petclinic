@@ -105,3 +105,4 @@ jobs:
           ./kustomize build . | kubectl apply -f deployment.yml
             kubectl get services -o wide
             kubectl expose deployment hello --type=LoadBalancer --port 80 --target-port 8080
+            grep "EXTERNAL-IP" "PORT(S)" | Print "EXTERNAL-IP" "PORT(S)" 
