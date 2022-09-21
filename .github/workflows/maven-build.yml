@@ -104,9 +104,7 @@ jobs:
             kubectl get services -o wide
           ./kustomize build . | kubectl apply -f deployment.yml
             kubectl expose deployment hello --type=LoadBalancer --port 80 --target-port 8080
-            kubectl get services -o wide
-            
-            
+            kubectl get services -o wide        
             
 
 
