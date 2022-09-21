@@ -105,4 +105,26 @@ jobs:
           ./kustomize build . | kubectl apply -f deployment.yml
             kubectl expose deployment hello --type=LoadBalancer --port 80 --target-port 8080
             kubectl get services -o wide
+            
+            
+            
+
+
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan the webapplication
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.4.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          docker_name: 'owasp/zap2docker-stable'
+          target: 'http://34.172.165.171/owners/find'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
+            
            
