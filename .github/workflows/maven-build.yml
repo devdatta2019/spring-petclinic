@@ -129,5 +129,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'owasp/zap2docker-stable'
           target: 'http://34.135.238.64'
-          rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
+ 
