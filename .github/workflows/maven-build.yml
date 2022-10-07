@@ -116,7 +116,7 @@ jobs:
 
 
   zap_scan:
-    runs-on: windows
+    runs-on: ubuntu-latest
     name: Scan the webapplication
     steps:
       - name: Checkout
