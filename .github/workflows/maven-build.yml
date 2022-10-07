@@ -110,7 +110,7 @@ jobs:
            
            
 
-           - name: OWASP ZAP Integration with GitHub
+          - name: OWASP ZAP Integration with GitHub
              runs-on: ubuntu-latest
            - name: Scan the web application
              steps:
