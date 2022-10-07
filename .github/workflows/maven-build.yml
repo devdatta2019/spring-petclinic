@@ -126,6 +126,5 @@ jobs:
       - name: ZAP Scan
         uses: action-baseline@v0.7.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          target: 'http://34.135.238.64'
+           target: 'http://34.135.238.64'
  
