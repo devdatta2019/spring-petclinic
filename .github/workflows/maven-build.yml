@@ -110,22 +110,20 @@ jobs:
          run: |
            echo ${{ steps.EXTERNAL-IP.outputs.ipv4 }}
            echo ${{ steps.port.outputs.ipv4 }}
-            
-
-
-
+       - name: OWASP ZAP Integration with GitHub
 
   zap_scan:
-    runs-on: ubuntu-latest
-    name: Scan the webapplication
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          ref: main
-      - name: ZAP Scan
-        uses: zaproxy/action-baseline@v0.7.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          target: "http://34.135.238.64/"
- 
+              runs-on: ubuntu-latest
+              name: Scan the web application
+              steps:
+                - name: Checkout
+                  uses: actions/checkout@v2
+                  with:
+                    ref: master
+                - name: ZAP Scan
+                  uses: zaproxy/action-baseline@v0.6.1
+                  with:
+                    docker_name: 'owasp/zap2docker-stable'
+                    target: 'http://34.135.238.64/'
+                    rules_file_name: '.zap/rules.tsv'
+                    cmd_options: '-a'
