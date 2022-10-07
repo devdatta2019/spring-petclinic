@@ -124,9 +124,8 @@ jobs:
         with:
           ref: main
       - name: ZAP Scan
-        uses: zaproxy/action-full-scan@v0.4.0
+        uses: action-baseline@v0.7.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          docker_name: 'owasp/zap2docker-stable'
           target: 'http://34.135.238.64'
  
