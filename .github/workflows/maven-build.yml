@@ -123,6 +123,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'owasp/zap2docker-live'
-          target: 'http://104.198.74.155/'
+          target: 'http://104.198.74.155/--auto'
           rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
+          cmd_options: '--auto'
