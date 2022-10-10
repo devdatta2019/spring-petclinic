@@ -1,0 +1,32 @@
+env:
+  contexts:
+  - name: baseline
+    urls:
+    - https://104.198.74.155/
+  parameters:
+    failOnError: true
+    progressToStdout: false
+jobs:
+- install:
+  - pscanrulesBeta
+  type: addOns
+  uninstall: []
+- parameters:
+    enableTags: false
+    maxAlertsPerRule: 10
+  type: passiveScan-config
+- parameters:
+    maxDuration: 1
+    url: http://104.198.74.155/
+  type: spider
+- parameters:
+    maxDuration: 1
+    url: https://104.198.74.155/
+  type: spiderAjax
+- parameters:
+    maxDuration: 0
+  type: passiveScan-wait
+- parameters:
+    format: Long
+    summaryFile: /zap/zap_out.json
+  type: outputSummary
