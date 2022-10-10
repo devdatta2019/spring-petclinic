@@ -122,7 +122,7 @@ jobs:
         uses: zaproxy/action-baseline@v0.7.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          docker_name: 'docker pull owasp/zap2docker-live'
+          docker_name: 'owasp/zap2docker-live'
           target: 'http://104.198.74.155/'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
