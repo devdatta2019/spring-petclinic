@@ -106,16 +106,14 @@ jobs:
             kubectl expose deployment hello --type=LoadBalancer --port 80 --target-port 8080
             kubectl get services -o wide  
      
-     
+       - name: Sleep for 600 seconds
+         run: sleep 600s
+         shell: bash
            
-           
-
-
 
   zap_scan:
     runs-on: ubuntu-latest
-    name: Scan the webapplication
- 
+    name: Scan the webapplication 
     needs: GKE
     steps:
       - name: Checkout
