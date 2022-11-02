@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: gcr.io/apt-reality-357605/test@sha256:94ba4bc523ec4a73da7d41c072c42a85cfcaaf23426263ee4852939b094dcbdd
+        image: gcr.io/tidal-repeater-367408/test@sha256:87686f98a52cc5aec3921ede3edc7432dfb865abdeaedfa63398a56454d3d2ba
         ports:
         - containerPort: 5000
 
