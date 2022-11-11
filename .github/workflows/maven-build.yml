@@ -106,8 +106,8 @@ jobs:
             kubectl expose deployment hello --type=LoadBalancer --port 80 --target-port 8080
             kubectl get services -o wide  
      
-       - name: Sleep for 700 seconds
-         run: sleep 700s
+       - name: Sleep for 120 seconds
+         run: sleep 120s
          shell: bash
            
 
